@@ -1,0 +1,548 @@
+/*======================================
+  General Styles - استایل‌های عمومی
+  ======================================*/
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --text-color: #444;
+    --light-bg-color: #f4f7f9;
+    --dark-bg-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --border-radius-main: 10px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    direction: rtl;
+    font-family: 'Vazirmatn', 'Arial', sans-serif; /* فونت پیشنهادی: وزیرمتن */
+    background-color: var(--light-bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container-full {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--secondary-color);
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+p, ul, li {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--dark-bg-color);
+}
+
+/*======================================
+  Top Bar - نوار بالایی
+  ======================================*/
+.top-bar {
+    background-color: #222;
+    color: white;
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+.top-bar .container-full {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar-links a {
+    color: white;
+    margin-right: 15px;
+    transition: opacity var(--transition-speed);
+}
+
+.top-bar-links a:hover {
+    opacity: 0.7;
+}
+
+/*======================================
+  Header and Navigation - هدر و ناوبری
+  ======================================*/
+.header-main {
+    background-color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-main .container-full {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.logo a {
+    color: var(--secondary-color);
+}
+
+.main-nav .nav-list {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--secondary-color);
+    font-weight: bold;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed) ease-in-out;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 150px;
+    border-radius: var(--border-radius-main);
+    z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    display: block;
+    text-align: right;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--light-bg-color);
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.search-input {
+    border: none;
+    padding: 8px 15px;
+    text-align: right;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.search-btn {
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.search-btn:hover {
+    background-color: #2980b9;
+}
+/*======================================
+  Hero Section - بخش اصلی
+  ======================================*/
+.hero-section {
+    background-image: url('images/photo_hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.hero-actions .cta-button {
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    border-radius: 25px;
+    margin: 0 10px;
+    border: 2px solid transparent;
+    transition: all var(--transition-speed) ease;
+}
+
+.cta-button.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.cta-button.primary:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: white;
+    border-color: white;
+}
+
+.cta-button.secondary:hover {
+    background-color: white;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/*======================================
+  About Section - درباره من
+  ======================================*/
+.about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.about-profile-pic {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: var(--border-radius-main);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.read-more-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/*======================================
+  Services and Projects - خدمات و پروژه‌ها
+  ======================================*/
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 10px auto 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: var(--border-radius-main);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform var(--transition-speed) ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-title {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: var(--border-radius-main);
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform var(--transition-speed) ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+/*======================================
+  Blog Section - بخش بلاگ
+  ======================================*/
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.blog-post {
+    background-color: white;
+    border-radius: var(--border-radius-main);
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform var(--transition-speed) ease;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+}
+
+.blog-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.blog-content {
+    padding: 20px;
+}
+
+.blog-content h3 a {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/*======================================
+  Footer - فوتر
+  ======================================*/
+.footer-main {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 60px 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.footer-links li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: white;
+    transition: color var(--transition-speed);
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.contact-info li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: color var(--transition-speed);
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/*======================================
+  Responsive Design - واکنش‌گرایی
+  ======================================*/
+@media (max-width: 992px) {
+    .main-nav .nav-list {
+        gap: 15px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-profile-pic {
+        max-width: 100%;
+        margin-top: 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-main .container-full {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .main-nav .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .services-grid, .project-grid, .blog-grid, .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
